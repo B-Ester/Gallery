@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    {% load staticfiles %}
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!--start: Header -->
+	<header>
+
+		<!--start: Container -->
+		<div class="container">
+
+			<!--start: Row -->
+			<div class="row-fluid">
+
+				<!--start: Navigation -->
+				<div class="navigation">
+
+					<div class="navbar navbar-fixed-top">
+			    		<div class="navbar-inner">
+			          		<a class="btn btn-navbar btnOverlay" data-toggle="collapse" data-target=".nav-collapse">
+			            		Menu
+			          		</a>
+			          		<div class="nav-collapse collapse">
+			            		<ul class="nav">
+									<li><a href="{% url 'home' %}" class="home">Home</a></li>
+			              			<li><a href="http://127.0.0.1:8000/upload/" class="services">Add a photo</a></li>
+									<li><a href="{% url 'about' %}" class="about">About</a></li>
+
+			            		</ul>
+			          		</div>
+			        	</div>
+			      	</div>
+
+
+				</div>
+				<!--end: Navigation -->
+
+			</div>
+			<!--end: Row -->
+
+		</div>
+
+
+	</header>
+    <br/>
+
+
+    <div class="container">
+        <h1 class="hello">Фотогалерея!</h1>
+        {% for article in articles %}
+                <h2 class="name"><a href="{% url 'article' article.id %}"> {{ article.name }}</a></h2>
+                <img src="{{ article.image.url }}" class="img"/></br>
+                <h4 class="time">{{ article.timestamp }}</h4>
+                <h4  class="laek"> Понравилось:  {{ article.likes }} <img class="param" src="{% static 'like.jpg' %}"  > </h4>
+            <div id="services" class="color black">
+		<!--start: Container -->
+		<div class="container">
+            <!--start: Wrapper -->
+			<div class="wrapper span12">
+			<div id="page-title">
+				<div id="page-title-inner">
+					<h2><span>Next</span></h2>
+				</div>
+
+			</div>
+        {% endfor %}
+    </div><!-- /.container -->
+
+    </div>
+</body>
+</html>
+
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

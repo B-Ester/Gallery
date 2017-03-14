@@ -43,7 +43,7 @@
 
     {% block content %}
         <h4 class="st">{{ article.name }}</h4>
-        <img src="{{ article.image.url }}" class="img"/></br>
+        <img src="{{ article.image.url }}" class="image"/></br>
         <a class="time">{{ article.timestamp }}</a><br>
         <p><a class="laek" href="/articles/addlike/{{ article.id }}"><img class="param" src="{% static 'like.jpg' %}"  > Понравилось: {{ article.likes }}</a></p>
         <p> Комментарии: </p>
